@@ -99,7 +99,7 @@ def task3_averaging(N=1000, m_list=[1, 2, 10, 100]):
             # this code block ends here
 
         plt.tight_layout(rect=[0,0,1,0.95])
-'''
+
 # ================================
 # Task 4: Variance scaling
 # ================================
@@ -112,7 +112,7 @@ def task4_variance_scaling(N=1000, m_list=[1,2,10,100]):
             samples = np.mean(dist.rvs(size=(N,m)), axis=1)
 
             # WRITE_YOUR_CODE HERE TO COMPUTE VARIANCE OF THE SAMPLE MEANS
-            var_avg = 
+            var_avg = samples.var() 
             # this code block ends here
 
             print(f"  m={m}, Variance of mean = {var_avg:.4f}, Expected = {var_original/m:.4f}")
@@ -130,8 +130,8 @@ def task5_mean_std(N=1000, m=10):
 
         # WRITE_YOUR_CODE HERE TO COMPUTE THEORETICAL MEAN, STD OF SAMPLE MEANS
         # theoretical CLT parameters
-        theo_mu  = 
-        theo_std = 
+        theo_mu  = dist.mean()
+        theo_std = dist.std() / np.sqrt(m)
         # this code block ends here
 
         fig, axes = plt.subplots(1,2, figsize=(12,4))
@@ -154,25 +154,25 @@ def task5_mean_std(N=1000, m=10):
         axes[1].grid(True)
 
         plt.tight_layout(rect=[0, 0, 1, 0.95])
-'''
+
 
 # ================================
 # Run main if this script is executed
 # ================================
 if __name__ == "__main__":
-    # print("Task 1: Plot PDFs")
-    # task1_plot_pdfs()
+    print("Task 1: Plot PDFs")
+    task1_plot_pdfs()
     
-    # # print("Task 2: Raw Sampling Histograms")
-    # task2_histograms()
+    # print("Task 2: Raw Sampling Histograms")
+    task2_histograms()
     
     # print("Task 3: Averaging Effect")
     task3_averaging()
     
-    # print("Task 4: Variance Scaling")
-    # task4_variance_scaling()
+    print("Task 4: Variance Scaling")
+    task4_variance_scaling()
     
-    # print("Task 5: Mean vs Standard Deviation")
-    # task5_mean_std()
+    print("Task 5: Mean vs Standard Deviation")
+    task5_mean_std()
 
     plt.show() # do not comment this out
